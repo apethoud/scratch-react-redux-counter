@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCount } from './counterSlice';
-import { increment, decrement, incrementByAmount } from './counterSlice';
+import { 
+    increment, 
+    decrement, 
+    incrementByAmount,
+    incrementAsync,
+} from './counterSlice';
 import styles from './Counter.module.css';
 
 export default function Counter() {
@@ -39,6 +44,12 @@ export default function Counter() {
                     onClick={() => dispatch(incrementByAmount(incrementValue))}
                 >
                     Add Amount
+                </button>
+                <button
+                    className={styles.asyncButton}
+                    onClick={() => dispatch(incrementAsync(incrementValue))}
+                >
+                    Add Async
                 </button>
             </div>
         </div>
